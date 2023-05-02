@@ -11,11 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.caqao.R
-import com.example.caqao.databinding.ActivityMain2Binding
-import com.example.caqao.databinding.FragmentFAQBinding
 
 
-class FAQFragment : Fragment() {
+class FAQsFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private var mList = ArrayList<RecyclerViewData>()

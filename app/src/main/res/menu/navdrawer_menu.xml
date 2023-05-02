@@ -12,7 +12,7 @@
                 <item
                     android:id="@+id/FAQFragment"
                     android:icon="@drawable/outline_question_mark_24"
-                    android:title="FAQ" />
+                    android:title="FAQs" />
                 <item
                     android:id="@+id/AboutUsFragment"
                     android:icon="@drawable/outline_info_24"

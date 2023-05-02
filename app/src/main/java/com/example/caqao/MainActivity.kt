@@ -1,28 +1,17 @@
 package com.example.caqao
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
-import android.widget.RelativeLayout
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
-import com.example.caqao.databinding.ActivityMainBinding
 import com.example.caqao.fragments.*
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.ui.setupWithNavController
@@ -105,7 +94,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 }
                 R.id.FAQFragment -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.nav_host_fragment, FAQFragment()).commit()
+                        .replace(R.id.nav_host_fragment, FAQsFragment()).commit()
                     supportActionBar!!.title = "FAQ"
                 }
             }

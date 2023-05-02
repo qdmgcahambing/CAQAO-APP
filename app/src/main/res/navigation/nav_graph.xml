@@ -59,7 +59,7 @@
         tools:layout="@layout/fragment_about_us" />
     <fragment
         android:id="@+id/FAQFragment"
-        android:name="com.example.caqao.fragments.FAQFragment"
+        android:name="com.example.caqao.fragments.FAQsFragment"
         android:label="fragment_f_a_q"
         tools:layout="@layout/fragment_f_a_q" />
     <fragment

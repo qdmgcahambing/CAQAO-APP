@@ -84,7 +84,7 @@ class GalleryFragment : Fragment() {
                     requireActivity().supportFragmentManager.beginTransaction()
                         .replace(R.id.nav_host_fragment, fragment).commit()
                 })
-                addItemDecoration(LastTwoItemBottomMarginDecorator(resources.getDimensionPixelSize(R.dimen.fab_margin1)))
+                addItemDecoration(LastTwoItemBottomMarginDecorator(resources.getDimensionPixelSize(R.dimen.fab_margin2)))
             }
         }
 

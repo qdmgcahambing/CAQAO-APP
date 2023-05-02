@@ -5,7 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class LastTwoItemBottomMarginDecorator(private val margin: Int) : RecyclerView.ItemDecoration() {
+class LastTwoItemBottomMarginDecorator(private val marginBottom: Int) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
         outRect: Rect, view: View,
@@ -21,7 +21,7 @@ class LastTwoItemBottomMarginDecorator(private val margin: Int) : RecyclerView.I
 
         // Add margin to the bottom of the last row
         if (childIndex in lastRowFirstIndex..lastRowLastIndex) {
-            outRect.bottom = margin
+            outRect.bottom = marginBottom
         }
     }
 
