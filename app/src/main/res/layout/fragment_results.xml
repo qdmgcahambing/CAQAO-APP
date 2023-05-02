@@ -30,7 +30,7 @@
                     android:layout_height="380dp"
                     android:layout_marginTop="-1dp"
                     android:layout_marginBottom="0dp"
-                    android:background="@drawable/rounded_rectangle_down"
+                    android:background="@color/colorPrimary"
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -64,76 +64,48 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/resultsRoundedRectangle" />
 
-
                 <TextView
                     android:id="@+id/title_beanGrade"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="42dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="40dp"
                     android:fontFamily="@font/lato_bold"
-                    android:text="Bean Grade"
+                    android:text="Bean Grade:"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/qaResults" />
 
                 <TextView
-                    android:id="@+id/grade"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="55dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="10dp"
-                    android:fontFamily="@font/lato_bold"
-                    android:text="Grade: "
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/title_beanGrade" />
-
-                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/beanGrade"
-                    style="@style/Widget.CAQAO.TextInputLayout"
-                    android:layout_width="132dp"
-                    android:layout_height="80dp"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="15dp"
-                    android:textColor="@color/black"
-                    app:boxBackgroundMode="filled"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    app:layout_constraintStart_toStartOf="@+id/grade"
-                    app:layout_constraintTop_toBottomOf="@+id/title_beanGrade">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/beanGradeInputText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/colorSecondaryLight"
-                        android:fontFamily="@font/lato_bold"
-                        android:gravity="center"
-                        android:text="@{viewModel.cacaoDetection.beanGrade}"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_width="145dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:background="@drawable/rounded_rectangle"
+                    android:text="@{viewModel.cacaoDetection.beanGrade}"
+                    app:layout_constraintStart_toEndOf="@+id/title_beanGrade"
+                    app:layout_constraintTop_toBottomOf="@id/qaResults"/>
 
                 <TextView
                     android:id="@+id/title_beanGradeLegend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="42dp"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="35dp"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/lato_bold"
                     android:text="Legend"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@+id/beanGradeLegend"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/grade" />
+                    app:layout_constraintTop_toBottomOf="@+id/title_beanGrade" />
 
                 <HorizontalScrollView
                     android:id="@+id/beanGradeLegend"
@@ -158,8 +130,10 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
-                            android:layout_margin="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="20dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="@color/colorPrimaryLight"
                             app:cardCornerRadius="10dp">
@@ -168,8 +142,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -202,7 +175,6 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="@color/colorPrimaryLight"
@@ -212,8 +184,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -247,7 +218,6 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="@color/colorPrimaryLight"
@@ -257,8 +227,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -291,7 +260,6 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="@color/colorPrimaryLight"
@@ -301,8 +269,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -335,7 +302,6 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="@color/colorPrimaryLight"
@@ -345,8 +311,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -380,8 +345,10 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
-                            android:layout_margin="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginBottom="5dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="@color/colorPrimaryLight"
                             app:cardCornerRadius="10dp">
@@ -390,8 +357,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -432,7 +398,7 @@
                     android:fontFamily="@font/lato_bold"
                     android:text="Defect Classification"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/beanGradeLegend" />
 
@@ -459,7 +425,7 @@
                     android:fontFamily="@font/lato_bold"
                     android:text="Legend"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@+id/defectsLegend"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cacaoDefectBarChart" />
@@ -487,8 +453,10 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="140dp"
-                            android:clickable="true"
-                            android:layout_margin="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="20dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="#6D9D5C"
                             app:cardCornerRadius="10dp">
@@ -497,8 +465,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -531,7 +498,6 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="140dp"
-                            android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="@color/colorSecondaryDark"
@@ -541,8 +507,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -576,7 +541,6 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="140dp"
-                            android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="#768692"
@@ -586,8 +550,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -620,8 +583,10 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="140dp"
-                            android:clickable="true"
-                            android:layout_margin="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="5dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="#AD8D6F"
                             app:cardCornerRadius="10dp">
@@ -630,8 +595,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -659,7 +623,6 @@
 
                         </com.google.android.material.card.MaterialCardView>
 
-
                     </GridLayout>
                 </HorizontalScrollView>
 
@@ -672,7 +635,7 @@
                     android:fontFamily="@font/lato_bold"
                     android:text="Color Classification"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/defectsLegend" />
 
@@ -699,7 +662,7 @@
                     android:fontFamily="@font/lato_bold"
                     android:text="Legend"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@+id/colorLegend"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cacaoColorBarChart" />
@@ -727,8 +690,10 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
-                            android:layout_margin="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="20dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="#964B00"
                             app:cardCornerRadius="10dp">
@@ -737,8 +702,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -771,7 +735,6 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="#9C44AC"
@@ -781,8 +744,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -816,7 +778,6 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="#660483"
@@ -826,8 +787,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -860,8 +820,10 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
-                            android:layout_margin="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="5dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="#381C00"
                             app:cardCornerRadius="10dp">
@@ -870,8 +832,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -899,8 +860,6 @@
 
                         </com.google.android.material.card.MaterialCardView>
 
-
-
                     </GridLayout>
                 </HorizontalScrollView>
 
@@ -913,7 +872,7 @@
                     android:fontFamily="@font/lato_bold"
                     android:text="Fissuring Grade Classification"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/colorLegend" />
 
@@ -940,7 +899,7 @@
                     android:fontFamily="@font/lato_bold"
                     android:text="Legend"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@+id/fissuringLegend"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/fissuringGradeBarChart" />
@@ -968,8 +927,10 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
-                            android:layout_margin="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="20dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="#285780"
                             app:cardCornerRadius="10dp">
@@ -978,8 +939,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -1012,7 +972,6 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="#006EB3"
@@ -1022,8 +981,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -1057,7 +1015,6 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
                             android:layout_margin="5dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="#4AC9E3"
@@ -1067,8 +1024,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -1101,8 +1057,10 @@
                             android:layout_rowWeight="1"
                             android:layout_width="170dp"
                             android:layout_height="160dp"
-                            android:clickable="true"
-                            android:layout_margin="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="5dp"
                             app:cardElevation="8dp"
                             app:cardBackgroundColor="#B7DDE1"
                             app:cardCornerRadius="10dp">
@@ -1111,8 +1069,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:orientation="vertical"
-                                android:background="@drawable/rounded_rectangle"
-                                android:backgroundTint="@color/colorSecondary">
+                                android:background="@color/colorSecondary">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -1140,8 +1097,6 @@
 
                         </com.google.android.material.card.MaterialCardView>
 
-
-
                     </GridLayout>
                 </HorizontalScrollView>
 
@@ -1154,7 +1109,7 @@
                     android:background="@drawable/sign_in_btn"
                     android:textAllCaps="false"
                     android:textSize="18sp"
-                    android:textColor="@color/colorSecondaryDark"
+                    android:textColor="@color/colorSecondaryLight"
                     android:text="Save and Exit"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -1162,8 +1117,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/fissuringLegend"
 
                     />
-
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

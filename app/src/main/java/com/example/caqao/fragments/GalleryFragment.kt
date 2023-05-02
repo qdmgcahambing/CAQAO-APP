@@ -5,16 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.caqao.CacaoDetectionListener
 import com.example.caqao.CacaoGridAdapter
 import com.example.caqao.R
 import com.example.caqao.caqaodetail.CacaoDetailFragment
 import com.example.caqao.databinding.FragmentGalleryBinding
+import com.example.caqao.fragments.GridSpanSizeLookup.Companion.ITEM_VIEW_TYPE_HEADER
+import com.example.caqao.fragments.GridSpanSizeLookup.Companion.ITEM_VIEW_TYPE_ITEM
 import com.example.caqao.models.CacaoDetectionViewModel
 
 
@@ -22,6 +26,7 @@ class GalleryFragment : Fragment() {
 
     private val sharedViewModel: CacaoDetectionViewModel by activityViewModels()
     private lateinit var binding: FragmentGalleryBinding
+    private lateinit var emptyGallery: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,24 +60,41 @@ class GalleryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        emptyGallery = view.findViewById(R.id.empty_gallery)
+
+        binding.photosGrid.apply {
+            layoutManager = GridLayoutManager(requireContext(), 2).apply {
+                spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                    override fun getSpanSize(position: Int): Int {
+                        return when (adapter?.getItemViewType(position)) {
+                            ITEM_VIEW_TYPE_HEADER -> 1
+                            ITEM_VIEW_TYPE_ITEM -> 2
+                            else -> 1
+                        }
+                    }
+                }
+                layoutManager = GridLayoutManager(requireContext(), 2)
+                adapter = CacaoGridAdapter(CacaoDetectionListener { cacaoDetectionId ->
+                    val args = Bundle()
+                    args.putInt("cacaoDetectionId", cacaoDetectionId)
+
+                    val fragment = CacaoDetailFragment()
+                    fragment.arguments = args
+
+                    requireActivity().supportFragmentManager.beginTransaction()
+                        .replace(R.id.nav_host_fragment, fragment).commit()
+                })
+                addItemDecoration(LastTwoItemBottomMarginDecorator(resources.getDimensionPixelSize(R.dimen.fab_margin1)))
+            }
+        }
+
+
         sharedViewModel.savedImagesCount.observe(viewLifecycleOwner) { count ->
 
-            (binding.photosGrid.adapter as CacaoGridAdapter).notifyItemInserted(binding.photosGrid.adapter?.itemCount ?: 0)
-
             val numberOfSavedImages = sharedViewModel.savedImagesCount.value
+
             if (numberOfSavedImages != null) {
-                // do something with the number of saved images
-                if (numberOfSavedImages % 2 == 0) {
-                    // number of saved images is even
-                    binding.photosGrid.addItemDecoration(LastTwoItemBottomMarginDecorator(resources.getDimensionPixelSize(R.dimen.fab_margin2)))
-
-                } else {
-                    // number of saved images is odd
-                    binding.photosGrid.addItemDecoration(LastItemBottomMarginDecorator(resources.getDimensionPixelSize(R.dimen.fab_margin1)))
-                }
-
-            } else {
-                // handle the case when the number of saved images is null
+                emptyGallery.visibility = if (numberOfSavedImages == 0) View.VISIBLE else View.GONE
             }
 
         }
