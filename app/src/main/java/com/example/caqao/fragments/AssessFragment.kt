@@ -14,6 +14,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +26,7 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.caqao.R
 import com.example.caqao.databinding.FragmentAssessBinding
 import com.example.caqao.models.CacaoDetectionViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -45,6 +47,7 @@ class AssessFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Inflate the layout for this fragment
         val fragmentBinding = FragmentAssessBinding.inflate(inflater, container, false)
         binding = fragmentBinding
 
@@ -77,19 +80,28 @@ class AssessFragment : Fragment() {
                 (activity as AppCompatActivity).supportActionBar?.title = "Home"
             }
         }
-
         sharedViewModel.validateImage(requireContext(), requireContext().contentResolver)
 
+        // Back button directs to Home Fragment
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true){
             override fun handleOnBackPressed() {
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_host_fragment, HomeFragment()).commit()
+                // Actionbar title set to Home
                 (activity as AppCompatActivity).supportActionBar?.title = "Home"
+
+                val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
+                fab.visibility = View.VISIBLE
             }
         })
-
+        // Hidden Bottom navigation
         val botnav = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
         botnav.visibility = View.GONE
+
+        val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
+        fab.visibility = View.GONE
+
+        // Actionbar title set to Assess Capture
         (activity as AppCompatActivity).supportActionBar?.title = "Assess Capture"
     }
 

@@ -34,7 +34,7 @@ class RecyclerViewAdapter (private var mList : List<RecyclerViewData>):
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_faqs_list_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_f_a_qs_list_item, parent, false)
         return RecyclerViewHolder(view)
     }
 

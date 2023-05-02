@@ -25,6 +25,7 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.caqao.R
 import com.example.caqao.databinding.FragmentHomeBinding
 import com.example.caqao.models.CacaoDetectionViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -100,9 +101,9 @@ class HomeFragment : Fragment() {
         binding?.apply {
             viewModel = sharedViewModel
             lifecycleOwner = viewLifecycleOwner
-            moreButton.setOnClickListener { onMoreButtonClicked() }
-            uploadButton.setOnClickListener { galleryCheckPermission() }
-            cameraButton.setOnClickListener { cameraCheckPermission() }
+//            moreButton.setOnClickListener { onMoreButtonClicked() }
+//            uploadButton.setOnClickListener { galleryCheckPermission() }
+//            cameraButton.setOnClickListener { cameraCheckPermission() }
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(
@@ -112,6 +113,9 @@ class HomeFragment : Fragment() {
 //                    botnav.show(R.id.homeFragment, true)
                 }
             })
+
+        val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
+        fab.visibility = View.VISIBLE
     }
 
     private fun galleryCheckPermission() {
@@ -235,22 +239,22 @@ class HomeFragment : Fragment() {
             }.show()
     }
 
-    private fun onMoreButtonClicked() {
-        setVisibility(clicked)
-        clicked = !clicked
-    }
+//    private fun onMoreButtonClicked() {
+//        setVisibility(clicked)
+//        clicked = !clicked
+//    }
 
-    private fun setVisibility(clicked: Boolean) {
-        if(!clicked){
-            binding?.cameraButton?.visibility = View.VISIBLE
-            binding?.uploadButton?.visibility = View.VISIBLE
-            binding?.moreButton?.startAnimation(rotateOpen)
-        }else{
-            binding?.cameraButton?.visibility = View.GONE
-            binding?.uploadButton?.visibility = View.GONE
-            binding?.moreButton?.startAnimation(rotateClose)
-        }
-    }
+//    private fun setVisibility(clicked: Boolean) {
+//        if(!clicked){
+//            binding?.cameraButton?.visibility = View.VISIBLE
+//            binding?.uploadButton?.visibility = View.VISIBLE
+//            binding?.moreButton?.startAnimation(rotateOpen)
+//        }else{
+//            binding?.cameraButton?.visibility = View.GONE
+//            binding?.uploadButton?.visibility = View.GONE
+//            binding?.moreButton?.startAnimation(rotateClose)
+//        }
+//    }
 
     companion object {
         @JvmStatic

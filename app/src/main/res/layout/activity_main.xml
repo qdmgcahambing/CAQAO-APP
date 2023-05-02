@@ -49,18 +49,48 @@
                 android:layout_marginTop="55dp"
                 />
 
-            <com.etebarian.meowbottomnavigation.MeowBottomNavigation
-                android:id="@+id/bottomNavigation"
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:mbn_backgroundBottomColor="#391D0C"
-                app:mbn_defaultIconColor="@color/design_default_color_on_primary"
-                app:mbn_rippleColor="#2f424242"
-                app:mbn_circleColor="@color/colorSecondaryDark"
-                app:mbn_selectedIconColor="@color/colorPrimary"
-                app:mbn_shadowColor="#1f212121"
-                android:layout_alignParentBottom="true"
-                android:background="@color/transparent" />
+                android:layout_height="match_parent">
+
+                <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+                    android:id="@+id/bottomNavigation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:mbn_backgroundBottomColor="#391D0C"
+                    app:mbn_defaultIconColor="@color/design_default_color_on_primary"
+                    app:mbn_rippleColor="#2f424242"
+                    app:mbn_circleColor="@color/colorSecondaryDark"
+                    app:mbn_selectedIconColor="@color/colorPrimary"
+                    app:mbn_shadowColor="#1f212121"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="bottom"
+                    android:background="@color/transparent"
+                    app:layout_scrollFlags="scroll|enterAlways" >
+
+                </com.etebarian.meowbottomnavigation.MeowBottomNavigation>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/ic_focus"
+                    app:backgroundTint="@color/colorSecondaryDark"
+                    app:elevation="6dp"
+                    app:fabSize="normal"
+                    app:layout_anchor="@+id/bottomNavigation"
+                    app:layout_anchorGravity="center"
+                    app:hideOnScroll="false"
+                    />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
 
         </RelativeLayout>
 

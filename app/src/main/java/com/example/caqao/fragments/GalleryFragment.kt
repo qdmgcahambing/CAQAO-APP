@@ -20,6 +20,7 @@ import com.example.caqao.databinding.FragmentGalleryBinding
 import com.example.caqao.fragments.GridSpanSizeLookup.Companion.ITEM_VIEW_TYPE_HEADER
 import com.example.caqao.fragments.GridSpanSizeLookup.Companion.ITEM_VIEW_TYPE_ITEM
 import com.example.caqao.models.CacaoDetectionViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class GalleryFragment : Fragment() {
@@ -109,8 +110,12 @@ class GalleryFragment : Fragment() {
                     botnav.show(R.id.homeFragment, true)
                 }
             })
+
         val view = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
         view.visibility = View.VISIBLE
+
+        val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
+        fab.visibility = View.VISIBLE
     }
 
     companion object {

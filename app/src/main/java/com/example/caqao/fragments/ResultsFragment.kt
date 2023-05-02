@@ -15,6 +15,7 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.caqao.R
 import com.example.caqao.databinding.FragmentResultsBinding
 import com.example.caqao.models.CacaoDetectionViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ResultsFragment : Fragment() {
 
@@ -28,8 +29,6 @@ class ResultsFragment : Fragment() {
         val fragmentBinding = FragmentResultsBinding.inflate(inflater, container, false)
         binding = fragmentBinding
 
-        val view = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
-        view.visibility = View.GONE
 
         return fragmentBinding.root
     }
@@ -45,6 +44,10 @@ class ResultsFragment : Fragment() {
 
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_host_fragment, HomeFragment()).commit()
+                (activity as AppCompatActivity).supportActionBar?.title = "Home"
+
+                val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
+                fab.visibility = View.VISIBLE
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true){
@@ -52,11 +55,20 @@ class ResultsFragment : Fragment() {
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_host_fragment, HomeFragment()).commit()
                 (activity as AppCompatActivity).supportActionBar?.title = "Home"
+
+                val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
+                fab.visibility = View.VISIBLE
             }
 
         })
 
         (activity as AppCompatActivity).supportActionBar?.title = "Results"
+
+        val view = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
+        view.visibility = View.GONE
+
+        val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
+        fab.visibility = View.GONE
     }
 
     override fun onDestroyView() {

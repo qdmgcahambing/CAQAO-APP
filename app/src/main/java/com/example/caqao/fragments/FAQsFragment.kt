@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.caqao.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class FAQsFragment : Fragment() {
@@ -111,6 +112,10 @@ class FAQsFragment : Fragment() {
             override fun handleOnBackPressed() {
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_host_fragment, HomeFragment()).commit()
+
+                val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
+                fab.visibility = View.VISIBLE
+
                 val botnav = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
                 botnav.show(R.id.homeFragment, true)
                 (activity as AppCompatActivity).supportActionBar?.title = "Home"
@@ -118,7 +123,9 @@ class FAQsFragment : Fragment() {
 
         })
         val view = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
-
         view.visibility = View.GONE
+
+        val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
+        fab.visibility = View.GONE
     }
 }

@@ -22,7 +22,7 @@
             android:layout_height="380dp"
             android:layout_marginTop="-1dp"
             android:layout_marginBottom="0dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/rounded_rectangle_down"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +72,8 @@
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/qaCapture"
-            app:imageValidationStatusErrorTextView="@{viewModel.imageValidationStatus}"/>
+            app:imageValidationStatusErrorTextView="@{viewModel.imageValidationStatus}"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/title_beanCount"
@@ -109,40 +110,42 @@
             style="@style/Widget.CAQAO.TextInputLayout"
             android:layout_width="250dp"
             android:layout_height="80dp"
-            android:layout_marginStart="50dp"
             android:layout_marginTop="20dp"
             app:boxBackgroundMode="filled"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
             app:boxCornerRadiusTopStart="10dp"
             android:hint="Enter bean size"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             app:layout_constraintStart_toStartOf="parent"
-             app:layout_constraintTop_toBottomOf="@+id/title_beanCount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_beanCount"
             app:imageValidationStatusTextInputLayout="@{viewModel.imageValidationStatus}">
             >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/beanCountInputEditText"
+                android:paddingTop="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 app:hintAnimationEnabled="true"
+                android:textAlignment="center"
                 android:fontFamily="@font/lato_bold"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:backgroundTint="@color/colorSecondaryLight"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
+
         <Button
             android:id="@+id/assess_btn"
             android:layout_width="132dp"
             android:layout_height="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="100dp"
             android:background="@drawable/sign_in_btn"
             android:textAllCaps="false"
             android:textSize="18sp"
@@ -151,6 +154,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/beanCountInputLayout"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:imageValidationStatusButton="@{viewModel.imageValidationStatus}"/>
 
         <Button
@@ -166,7 +170,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/errorMessage"
-            app:imageValidationStatusButtonError="@{viewModel.imageValidationStatus}"/>
+            app:imageValidationStatusButtonError="@{viewModel.imageValidationStatus}"
+            android:visibility="invisible"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

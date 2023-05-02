@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.caqao.MainActivity
 import com.example.caqao.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class AboutUsFragment : Fragment() {
 
@@ -17,17 +18,23 @@ class AboutUsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Actionbar title set to About Us
         (activity as AppCompatActivity).supportActionBar?.title = "About Us"
+        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_about_us, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Back button directs to Home Fragment
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true){
             override fun handleOnBackPressed() {
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.nav_host_fragment, HomeFragment()).commit()
+                val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
+                fab.visibility = View.VISIBLE
+
                 val botnav = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
                 botnav.show(R.id.homeFragment, true)
                 (activity as AppCompatActivity).supportActionBar?.title = "Home"
@@ -36,7 +43,9 @@ class AboutUsFragment : Fragment() {
         })
 
         val view = requireActivity().findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
-
         view.visibility = View.GONE
+
+        val fab = requireActivity().findViewById<FloatingActionButton>(R.id.fab)
+        fab.visibility = View.GONE
     }
 }
